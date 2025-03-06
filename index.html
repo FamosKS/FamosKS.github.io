@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mahasiswa Baru</title>
+    <link rel="icon" type="png" href="unp.png"> 
+    <link rel="stylesheet" href="styles.css">
+    <style>
+body {
+    position: relative;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    background-image: url("images.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images.jpg") no-repeat center center;
+    background-size: cover;
+    backdrop-filter: blur(10px); /* Blur latar belakang */
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* Pastikan konten berada di atas background yang diburamkan */
+    background-color: rgba(255, 255, 255, 0.8); /* Tambahkan background semi-transparan untuk konten */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+    </style>
+    <br>
+   
+    <br>
+    <script>
+        function showDepartmentOptions() {
+            var fakultasSelect = document.getElementById("fakultas");
+            var departmentDiv = document.getElementById("departmentOptions");
+            
+            // Menampilkan opsi departemen jika Fakultas Teknik dipilih
+            if (fakultasSelect.value === "Teknik") {
+                departmentDiv.style.display = "table-row"; // Menggunakan table-row untuk menampilkan baris tabel
+            } else {
+                departmentDiv.style.display = "none"; // Menyembunyikan baris tabel
+            }
+        }
+        function showProgramStudyOptions() {
+            var departmentSelect = document.getElementById("departemen"); // Pastikan ID sesuai
+            var programStudyDiv = document.getElementById("programStudyOptions");
+            
+            // Menampilkan opsi program studi jika Teknik Elektronika dipilih
+            if (departmentSelect.value === "Teknik Elektronika") {
+                programStudyDiv.style.display = "table-row"; // Menampilkan baris tabel untuk program studi
+            } else {
+                programStudyDiv.style.display = "none"; // Menyembunyikan baris tabel
+            }
+        }
+
+        function hideProgramStudyOptions() {
+            var programStudyDiv = document.getElementById("programStudyOptions");
+            programStudyDiv.style.display = "none"; // Menyembunyikan program studi
+        }
+    </script>
+</head>
+<body>
+    <div class="background-blur"></div>
+    <div class="container">
+        <h1><center>Data Mahasiswa Baru Universitas Negeri Padang</center></h1>
+        <h2><center>Input data Mahasiswa Baru</center></h2>
+        <form action="" method="post">
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>NIM</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Tempat Lahir</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td><input type="date"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>
+                    <input type="radio" name="jk" value="Laki-Laki"> Laki-Laki
+                    <input type="radio" name="jk" value="Perempuan"> Perempuan
+                </td>
+            </tr>
+            <tr>
+                <td>Agama</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Asal Sekolah</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr> 
+                <td>Alamat</td>
+                <td><textarea></textarea></td>
+            </tr>
+            <tr>
+                <td>Provinsi</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Kabupaten/Kota</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Kecamatan</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Kelurahan/Nagari/Desa</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Kode pos</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Fakultas</td>
+                <td>
+                    <select id="fakultas" onchange="showDepartmentOptions()">
+                        <option value="">Pilih Fakultas</option>
+                        <option value="Teknik">Teknik</option>
+                        <option value="Matematika dan IPA">Matematika dan IPA</option>
+                        <option value="Ekonomi dan Bisnis">Ekonomi dan Bisnis</option>
+                        <option value="Ilmu Pendidikan">Ilmu Pendidikan</option>
+                        <option value="Pariwisata dan Perhotelan">Pariwisata dan Perhotelan</option>
+                        <option value="Bahasa dan Seni">Bahasa dan Seni</option>
+                        <option value="Ilmu Sosial">Ilmu Sosial</option>
+                        <option value="Ilmu Keolahragaan">Ilmu Keolahragaan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="departmentOptions" style="display:none;">
+                <td>Departemen</td>
+                <td>
+                    <select id="departemen" onchange="showProgramStudyOptions()">
+                        <option value="">Pilih Departemen</option>
+                        <option value="Teknik Elektronika">Teknik Elektronika</option>
+                        <option value="Teknik Sipil">Teknik Sipil</option>
+                        <option value="Teknik Mesin">Teknik Mesin</option>
+                        <option value="Teknik Elektro">Teknik Elektro</option>
+                        <option value="Teknik Pertambangan">Teknik Pertambangan</option>
+                        <option value="Teknik Otomotif">Teknik Otomotif</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="programStudyOptions" style="display:none;">
+                <td>Program Studi </td>
+                <td>
+                    <select>
+                        <option >Pilih Program Studi</option>
+                        <option >Teknik Informatika</option>
+                        <option >Pendidikan Teknik Informatika</option>
+                        <option >Pendidikan Teknik Elektronika</option>
+                        <option >Teknik Rekayasa Sistem Elektronika</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Nomor Telepon</td>
+                <td><input type="tel" placeholder=" " required></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" placeholder=" " required></td>
+            </tr>
+        </table>
+   </form>
+   <h3><center>Input Data Orang Tua</center></h3>
+   <form action="" method="post">
+        <table>
+            <tr>
+                <td>Nama Ayah</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td> Pekerjaan Ayah </td>
+                <td>
+                    <select>
+                        <option >Pilih Pekerjaan</option>
+                        <option >Pegawai Negeri Sipil</option>
+                        <option >Wiraswasta</option>
+                        <option >Polisi</option>
+                        <option >TNI </option>
+                        <option>Karyawan Swasta </option>
+                        <option>Profesional</option>
+                        <option>Buruh/Tenaga Kerja</option>
+                        <option>Petani/Nelayan</option>
+                        <option>Pensiunan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Penghasilan Ayah</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Nomor Telepon Ayah</td>
+                <td><input type="number"></td>
+            </tr>
+
+            <tr>
+                <td>Nama Ibu</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td> Pekerjaan Ibu </td>
+                <td>
+                    <select>
+                        <option >Pilih Pekerjaan</option>
+                        <option >Pegawai Negeri Sipil</option>
+                        <option >Wiraswasta</option>
+                        <option >Polisi</option>
+                        <option >TNI </option>
+                        <option>Karyawan Swasta </option>
+                        <option>Profesional</option>
+                        <option>Buruh/Tenaga Kerja</option>
+                        <option>Petani/Nelayan</option>
+                        <option>Pensiunan</option>
+                        <option>Ibu Rumah Tangga</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Penghasilan Ibu</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Nomor Telepon Ibu</td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <tr>
+                    <td> Rata-rata Penghasilan Per Bulan </td>
+                    <td>
+                        <select name="kategori_penghasilan">
+                            <option value="">Rata-rata</option>
+                            <option value="rendah">Rendah (di bawah UMR)</option>
+                            <option value="menengah">Menengah (UMR - 2x UMR)</option>
+                            <option value="tinggi">Tinggi (di atas 2x UMR)</option>
+                            <option value="tidak_ingin_memberitahu">Tidak ingin memberitahu</option>
+                          </select>
+                    </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Simpan">
+                <input type="reset" value="Reset">
+                <input type="button" value="Kembali">
+                </td>
+            </tr>
+        </table>
+   </form>
+</div>
+</body>
+</html>
