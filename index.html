@@ -30,6 +30,14 @@ body {
     backdrop-filter: blur(10px); /* Blur latar belakang */
     z-index: -1;
 }
+.logo {
+            width: 100px; /* Sesuaikan ukuran logo */
+            height: auto; /* Biarkan tinggi menyesuaikan */
+            margin-bottom: 20px; /* Jarak antara logo dan teks */
+        }
+        h1 {
+            margin-top: 0; /* Hilangkan margin atas default */
+        }
 
 .container {
     position: relative;
@@ -78,6 +86,7 @@ body {
 <body>
     <div class="background-blur"></div>
     <div class="container">
+        <img src="unp.png" alt="Logo UNP" class="logo">
         <h1><center>Data Mahasiswa Baru Universitas Negeri Padang</center></h1>
         <h2><center>Input data Mahasiswa Baru</center></h2>
         <form action="" method="post">
